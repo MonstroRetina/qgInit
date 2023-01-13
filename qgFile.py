@@ -4,6 +4,7 @@ import qgManage
 
 
 def save(defaultCreatures):
+    qgManage.clear()
     fileName = input("\n Insira o nome do arquivo: ")
     saveList = []
 
@@ -16,7 +17,9 @@ def save(defaultCreatures):
     saveFile.writelines(saveList)
 
     saveFile.close()
+    qgManage.clear()
     print("\n Grupo salvo com sucesso no arquivo %s!\n" %(fileName))
+    input("Pressione Enter para continuar")
 
 def load():
     qgManage.clear()
@@ -46,6 +49,8 @@ def load():
         loadedCharacters.append(loadedCharacter)
         
     loadedFile.close()
+    qgManage.clear()
     print("\n Grupo carregado com sucesso!\n")
+    input("Pressione Enter para continuar")
 
     return loadedCharacters
