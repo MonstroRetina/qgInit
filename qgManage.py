@@ -1,4 +1,5 @@
 import os
+import platform
 
 def insertCreature():
     creatureName = input("\n Insira o nome: ")
@@ -22,5 +23,8 @@ def listCreatures(creatureList):
         print('%s : %i' %(creature[0],creature[1]))
 
 def clear():
-    clear = lambda: os.system('cls')
+    if platform.system is "Windows":
+        clear = lambda: os.system('cls')
+    else:
+        clear = lambda: os.system('clear')
     clear()
