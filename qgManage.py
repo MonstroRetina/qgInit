@@ -23,7 +23,7 @@ def listCreatures(creatureList):
         print('%s : %i' %(creature[0],creature[1]))
 
 def clear():
-    if platform.system is "Windows":
+    if platform.system() == "Windows":
         clear = lambda: os.system('cls')
     else:
         clear = lambda: os.system('clear')
