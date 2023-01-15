@@ -4,13 +4,18 @@ import qgFile
 
 def callOption(option,initCreatures):
     
+    #inserir criatura
     if option == "a":
         initCreatures[0].append(qgManage.insertCreature())
     
+    #rolar iniciativa
     if option == "b":
+        initMode = input("\n Iniciativa estática? (Padrão: dinâmica) S/N: ").strip().lower()
 
         while(True):
             initiatives = []
+            
+            qgManage.clear()
 
             for creature in initCreatures[0]:
                 roll = random.randint(1,20)
@@ -21,10 +26,17 @@ def callOption(option,initCreatures):
 
             initiatives.sort(reverse=True, key=get_roll)
 
+            if len(initMode) != 0 and initMode[0] == "s":
+                qgManage.clear()
+                for element in initiatives:
+                    print('\n' + element['name'] + ' : %i (%i)' % (element['roll']+element['mod'], element['roll']))
+                input("\n Pressione enter para prosseguir...\n")
+                break
+
             for element in initiatives:
                 qgManage.clear()
                 print('\n' + element['name'] + ' : %i (%i)' % (element['roll']+element['mod'], element['roll']))
-                input("\n Pressione enter para o próximo turno...")
+                input("\n Pressione enter para o próximo turno...\n")
             
             qgManage.clear()
             encounter = input("\n Fim da rodada. Encerrar repetição? S/N: ").strip().lower()
@@ -32,6 +44,7 @@ def callOption(option,initCreatures):
                 break
         return initCreatures
 
+    #remover criatura
     if option == "c":
         creatureRemove = input("\n Insira o nome da criatura a ser removida: ")
         for creature in initCreatures[0]: 
@@ -39,6 +52,7 @@ def callOption(option,initCreatures):
                 initCreatures[0].remove(creature)
         return initCreatures
     
+    #exibir encontro
     if option == "d":
         qgManage.clear()
         print(" Criaturas no encontro atual: ")
@@ -46,6 +60,7 @@ def callOption(option,initCreatures):
         input("\n Pressione enter para continuar...")
         return initCreatures
 
+    #exibir jogadores
     if option == "d2":
         print("\n")
         qgManage.clear()
@@ -53,12 +68,14 @@ def callOption(option,initCreatures):
         input("\n Pressione enter para continuar...")
         return initCreatures
 
+    #inserir jogador
     if option == "e":
         jogadorInserido = qgManage.insertCreature()
         initCreatures[0].append(jogadorInserido)
         initCreatures[1].append(jogadorInserido)
         return initCreatures
 
+    #reiniciar encontro
     if option == "f":
         initCreatures[0] = initCreatures[1]
         return initCreatures
