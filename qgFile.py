@@ -54,3 +54,4 @@ def load():
     input("Pressione Enter para continuar")
 
     return loadedCharacters
+    

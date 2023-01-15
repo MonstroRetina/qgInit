@@ -1,6 +1,6 @@
 import qgManage
 import qgOptions
-    
+
 print ('''
  ________    ________  .__       .__  __   
  \_____  \  /  _____/  |__| ____ |__|/  |_ 
@@ -8,6 +8,7 @@ print ('''
  /   \_/.  \    \_\  \ |  |   |  \  ||  |  
  \_____\ \_/\______  / |__|___|  /__||__|  
         \__>       \/          \/          
+                                Ver. 1.1
  ''')
 
 input("\n Pressione enter para começar\n")
@@ -21,6 +22,10 @@ while(True):
     print(" ======================================")
     if(len(initCreatures[1]) == 0):
         print("\n Personagens jogadores não inseridos!\n")
+        print(" ======================================\n")
+    if(len(initCreatures[0]) == 0):
+        print(" Não há criaturas no Econtro!\n")
+        print(" ======================================\n")
 
     print(" OPÇÕES: ")
     print("\n a - Inserir criatura \n b - Rolar iniciativa \n c - Remover criatura \n d - Mostrar encontro \n e - Inserir jogador \n f - Limpar encontro")
