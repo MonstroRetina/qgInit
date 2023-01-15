@@ -12,7 +12,7 @@ def save(default_creatures):
         for i in c:
             save_list.append(str(i) + "\n")
 
-    file_path = constants.FILEPATH + file_name +".txt"
+    file_path = constants.FILEPATH + "/" + file_name +".txt"
     save_file = open(file_path,"w+")
     save_file.writelines(save_list)
 
