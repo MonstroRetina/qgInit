@@ -3,18 +3,18 @@ import glob
 import utils.manage as manage
 import utils.constants as constants
 
-def save(defaultCreatures):
+def save(default_creatures):
     manage.clear()
     file_name = input("\n Insira o nome do arquivo: ")
-    saveList = []
+    save_list = []
 
-    for c in defaultCreatures:
+    for c in default_creatures:
         for i in c:
-            saveList.append(str(i) + "\n")
+            save_list.append(str(i) + "\n")
 
     file_path = constants.FILEPATH + file_name +".txt"
-    save_file = open(constants.FILEPATH,"w+")
-    save_file.writelines(saveList)
+    save_file = open(file_path,"w+")
+    save_file.writelines(save_list)
 
     save_file.close()
     manage.clear()
@@ -33,25 +33,24 @@ def load():
         print('%s' % (tempTuple[0]))
     file_name = input("\n Insira o arquivo a ser carregado: ")
     constants.FILEPATH = constants.FILEPATH + '\\' + file_name + '.txt'
-    loadedFile = open(constants.FILEPATH,"r")
-    loadedCharacters = []
+    loaded_file = open(constants.FILEPATH,"r")
+    loaded_characters = []
 
-    while loadedFile:
-        loadedCharacter = []
-        line = loadedFile.readline().rstrip()
+    while loaded_file:
+        loaded_character = []
+        line = loaded_file.readline().rstrip()
         if line == "":
             break
-        loadedCharacter.append(line)
-        line = loadedFile.readline().rstrip()
-        loadedCharacter.append(int(line))
+        loaded_character.append(line)
+        line = loaded_file.readline().rstrip()
+        loaded_character.append(int(line))
         
 
-        loadedCharacters.append(loadedCharacter)
+        loaded_characters.append(loaded_character)
         
-    loadedFile.close()
+    loaded_file.close()
     manage.clear()
     print("\n Grupo carregado com sucesso!\n")
     input("Pressione Enter para continuar")
 
-    return loadedCharacters
-    
+    return loaded_characters
