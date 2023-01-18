@@ -56,7 +56,7 @@ def call_option(option,init_creatures):
     #exibir encontro
     if option == "d":
         manage.clear()
-        print(" Criaturas no encontro atual: ")
+        print("\n Criaturas no encontro atual: \n")
         manage.list_creatures(init_creatures[0])
         input("\n Pressione enter para continuar...")
         return init_creatures
