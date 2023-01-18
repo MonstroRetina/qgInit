@@ -1,5 +1,5 @@
-import qgManage
-import qgOptions
+import utils.manage as manage
+import utils.options as options
 
 print ('''
  ________    ________  .__       .__  __   
@@ -13,17 +13,17 @@ print ('''
 
 input("\n Pressione enter para começar\n")
 
-defaultCreatures = []
-defaultGroup = []
-initCreatures = [defaultCreatures,defaultGroup]
+default_creatures = []
+default_group = []
+init_creatures = [default_creatures,default_group]
 
 while(True):
-    qgManage.clear()
+    manage.clear()
     print(" ======================================")
-    if(len(initCreatures[1]) == 0):
+    if(len(init_creatures[1]) == 0):
         print("\n Personagens jogadores não inseridos!\n")
         print(" ======================================\n")
-    if(len(initCreatures[0]) == 0):
+    if(len(init_creatures[0]) == 0):
         print(" Não há criaturas no Econtro!\n")
         print(" ======================================\n")
 
@@ -33,5 +33,5 @@ while(True):
     print("\n sair - fechar o programa")
     option = input("\n Insira a opção: ").strip().lower()
 
-    initCreatures = qgOptions.callOption(option,initCreatures)
+    init_creatures = options.call_option(option,init_creatures)
     continue
